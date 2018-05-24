@@ -4,6 +4,9 @@
   -moz-user-select: none;
   vertical-align:top;
 }
+body{
+  background:#000;
+}
 
 #select-midi-output-ch,#select-midi-output-device{
   font-size: 10px;
@@ -38,7 +41,7 @@
   width:40px;
   height:20px;
   border-radius:3px;
-  background:#eee;
+  background:#333;
   margin-bottom:4px;
 }
 .right-box{
@@ -48,7 +51,7 @@
 /* SLIDER */
 .slider-line .ui-widget.ui-widget-content{
   border:none;
-  background:#eee;
+  background:#333;
 }
 .slider-line .ui-slider-range{
   background:#87ceeb
@@ -68,7 +71,7 @@
   width:100%;
   height:20px;
   border-radius:3px;
-  background:#eee;
+  background:#333;
   margin-bottom:4px;
 }
 .btn.active{

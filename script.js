@@ -83,6 +83,8 @@ $(function() {
       displayInput:false,
       lineCap:'round',
       thickness:0.4,
+      bgColor: '#333',
+      fgColor:'#3f0'
     }
   );
 });
