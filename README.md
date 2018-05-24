@@ -1,5 +1,5 @@
 # LCXL
-Launch Control XL MIDI emulator on browser.
+Novation Launch Control XL MIDI emulator on browser.
 
 
 ## setup
