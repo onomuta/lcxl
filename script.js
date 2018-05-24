@@ -83,8 +83,8 @@ $(function() {
       displayInput:false,
       lineCap:'round',
       thickness:0.4,
-      bgColor: '#333',
-      fgColor:'#3f0'
+      bgColor: '#222',
+      fgColor:'#0c5'
     }
   );
 });
@@ -182,15 +182,23 @@ $( "#btn6B" ).mousedown(function() { pushBtn(53,this) });
 $( "#btn7B" ).mousedown(function() { pushBtn(54,this) });
 $( "#btn8B" ).mousedown(function() { pushBtn(55,this) });
 
-
-$( "#funcN" ).mousedown(function() { pushBtn(58,this) });
-$( "#funcS" ).mousedown(function() { pushBtn(59,this) });
-$( "#funcW" ).mousedown(function() { pushBtn(46,this) });
-$( "#funcE" ).mousedown(function() { pushBtn(60,this) });
-$( "#func1" ).mousedown(function() { pushBtn(105,this) });
-$( "#func2" ).mousedown(function() { pushBtn(106,this) });
-$( "#func3" ).mousedown(function() { pushBtn(107,this) });
-$( "#func4" ).mousedown(function() { pushBtn(108,this) });
+//上下左右ノートナンバー確認
+$( "#funcN" ).mousedown(function() { pushNote(101) });
+$( "#funcN" ).mouseup(  function() { releaseNote(101) });
+$( "#funcS" ).mousedown(function() { pushNote(102) });
+$( "#funcS" ).mouseup(  function() { releaseNote(102) });
+$( "#funcW" ).mousedown(function() { pushNote(103) });
+$( "#funcW" ).mouseup(  function() { releaseNote(103) });
+$( "#funcE" ).mousedown(function() { pushNote(104) });
+$( "#funcE" ).mouseup(  function() { releaseNote(104) });
+$( "#func1" ).mousedown(function() { pushNote(105) });
+$( "#func1" ).mouseup(  function() { releaseNote(105) });
+$( "#func2" ).mousedown(function() { pushNote(106) });
+$( "#func2" ).mouseup(  function() { releaseNote(106) });
+$( "#func3" ).mousedown(function() { pushNote(107) });
+$( "#func3" ).mouseup(  function() { releaseNote(107) });
+$( "#func4" ).mousedown(function() { pushNote(108) });
+$( "#func4" ).mouseup(  function() { releaseNote(108) });
 
 
 function pushBtn(cc,t){
@@ -211,5 +219,17 @@ function releaseBtn(){
     sendCC(pressedBtn, 0);
     $(".btn").removeClass("active");
     pressedBtn = -1;
+  }
+}
+
+function pushNote(note){
+  if(outputs.length > 0){
+    outputs[0].send([0x90,note,0x7f]);
+  }
+}
+
+function releaseNote(note){
+  if(outputs.length > 0){
+    outputs[0].send([0x80,note,0x00]);
   }
 }
