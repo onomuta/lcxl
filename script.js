@@ -165,61 +165,36 @@ $( "#slider8" ).slider({
 //BTN
 var pressedBtn = -1;
 
-$( "#btn1A" ).mousedown(function() { pushNote(41,this) });
-$( "#btn2A" ).mousedown(function() { pushNote(42,this) });
-$( "#btn3A" ).mousedown(function() { pushNote(43,this) });
-$( "#btn4A" ).mousedown(function() { pushNote(44,this) });
-$( "#btn5A" ).mousedown(function() { pushNote(57,this) });
-$( "#btn6A" ).mousedown(function() { pushNote(58,this) });
-$( "#btn7A" ).mousedown(function() { pushNote(59,this) });
-$( "#btn8A" ).mousedown(function() { pushNote(60,this) });
-$( "#btn1B" ).mousedown(function() { pushNote(73,this) });
-$( "#btn2B" ).mousedown(function() { pushNote(74,this) });
-$( "#btn3B" ).mousedown(function() { pushNote(75,this) });
-$( "#btn4B" ).mousedown(function() { pushNote(76,this) });
-$( "#btn5B" ).mousedown(function() { pushNote(89,this) });
-$( "#btn6B" ).mousedown(function() { pushNote(90,this) });
-$( "#btn7B" ).mousedown(function() { pushNote(91,this) });
-$( "#btn8B" ).mousedown(function() { pushNote(92,this) });
-
-$( "#btn1A" ).mousedown(function() { releaseNote(41,this) });
-$( "#btn2A" ).mousedown(function() { releaseNote(42,this) });
-$( "#btn3A" ).mousedown(function() { releaseNote(43,this) });
-$( "#btn4A" ).mousedown(function() { releaseNote(44,this) });
-$( "#btn5A" ).mousedown(function() { releaseNote(57,this) });
-$( "#btn6A" ).mousedown(function() { releaseNote(58,this) });
-$( "#btn7A" ).mousedown(function() { releaseNote(59,this) });
-$( "#btn8A" ).mousedown(function() { releaseNote(60,this) });
-$( "#btn1B" ).mousedown(function() { releaseNote(73,this) });
-$( "#btn2B" ).mousedown(function() { releaseNote(74,this) });
-$( "#btn3B" ).mousedown(function() { releaseNote(75,this) });
-$( "#btn4B" ).mousedown(function() { releaseNote(76,this) });
-$( "#btn5B" ).mousedown(function() { releaseNote(89,this) });
-$( "#btn6B" ).mousedown(function() { releaseNote(90,this) });
-$( "#btn7B" ).mousedown(function() { releaseNote(91,this) });
-$( "#btn8B" ).mousedown(function() { releaseNote(92,this) });
+$( "#btn1A" ).mousedown(function() { pushNoteBtn(41,this) });
+$( "#btn2A" ).mousedown(function() { pushNoteBtn(42,this) });
+$( "#btn3A" ).mousedown(function() { pushNoteBtn(43,this) });
+$( "#btn4A" ).mousedown(function() { pushNoteBtn(44,this) });
+$( "#btn5A" ).mousedown(function() { pushNoteBtn(57,this) });
+$( "#btn6A" ).mousedown(function() { pushNoteBtn(58,this) });
+$( "#btn7A" ).mousedown(function() { pushNoteBtn(59,this) });
+$( "#btn8A" ).mousedown(function() { pushNoteBtn(60,this) });
+$( "#btn1B" ).mousedown(function() { pushNoteBtn(73,this) });
+$( "#btn2B" ).mousedown(function() { pushNoteBtn(74,this) });
+$( "#btn3B" ).mousedown(function() { pushNoteBtn(75,this) });
+$( "#btn4B" ).mousedown(function() { pushNoteBtn(76,this) });
+$( "#btn5B" ).mousedown(function() { pushNoteBtn(89,this) });
+$( "#btn6B" ).mousedown(function() { pushNoteBtn(90,this) });
+$( "#btn7B" ).mousedown(function() { pushNoteBtn(91,this) });
+$( "#btn8B" ).mousedown(function() { pushNoteBtn(92,this) });
 
 //上下左右ノートナンバー確認
-$( "#funcN" ).mousedown(function() { pushNote(101) });
-$( "#funcN" ).mouseup(  function() { releaseNote(101) });
-$( "#funcS" ).mousedown(function() { pushNote(102) });
-$( "#funcS" ).mouseup(  function() { releaseNote(102) });
-$( "#funcW" ).mousedown(function() { pushNote(103) });
-$( "#funcW" ).mouseup(  function() { releaseNote(103) });
-$( "#funcE" ).mousedown(function() { pushNote(104) });
-$( "#funcE" ).mouseup(  function() { releaseNote(104) });
-$( "#func1" ).mousedown(function() { pushNote(105) });
-$( "#func1" ).mouseup(  function() { releaseNote(105) });
-$( "#func2" ).mousedown(function() { pushNote(106) });
-$( "#func2" ).mouseup(  function() { releaseNote(106) });
-$( "#func3" ).mousedown(function() { pushNote(107) });
-$( "#func3" ).mouseup(  function() { releaseNote(107) });
-$( "#func4" ).mousedown(function() { pushNote(108) });
-$( "#func4" ).mouseup(  function() { releaseNote(108) });
+$( "#funcN" ).mousedown(function() { pushNoteBtn(101, this) });
+$( "#funcS" ).mousedown(function() { pushNoteBtn(102, this) });
+$( "#funcW" ).mousedown(function() { pushNoteBtn(103, this) });
+$( "#funcE" ).mousedown(function() { pushNoteBtn(104, this) });
+$( "#func1" ).mousedown(function() { pushNoteBtn(105, this) });
+$( "#func2" ).mousedown(function() { pushNoteBtn(106, this) });
+$( "#func3" ).mousedown(function() { pushNoteBtn(107, this) });
+$( "#func4" ).mousedown(function() { pushNoteBtn(108, this) });
 
 
 function pushBtn(cc,t){
-  $(t).addClass("active");
+  t.classList.add("active");
   sendCC(cc, 127);
   pressedBtn = cc;
 }
@@ -231,6 +206,24 @@ $("body").mouseleave(function(){
   releaseBtn()
 });
 
+
+var pressedBtn = -1;
+
+
+// offのときにccとnoteがごちゃごちゃ
+
+document.onmouseup = function() {
+  releaseBtn();
+  releaseNote();
+};
+
+
+function pushNoteBtn(note,t){
+  t.classList.add("active");
+  outputs[0].send([0x90,note,0x7f]);
+  pressedBtn = note;
+}
+
 function releaseBtn(){
   if(pressedBtn != -1 ){
     sendCC(pressedBtn, 0);
@@ -238,15 +231,10 @@ function releaseBtn(){
     pressedBtn = -1;
   }
 }
-
-function pushNote(note){
-  if(outputs.length > 0){
-    outputs[0].send([0x90,note,0x7f]);
-  }
-}
-
-function releaseNote(note){
-  if(outputs.length > 0){
-    outputs[0].send([0x80,note,0x00]);
+function releaseNote(){
+  if(pressedBtn != -1 ){
+    outputs[0].send([0x80,pressedBtn,0x00]);
+    document.querySelector(".active").classList.remove("active");
+    pressedBtn = -1;
   }
 }
