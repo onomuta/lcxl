@@ -123,64 +123,81 @@ $( ".slider" ).slider({
 });
 $( "#slider1" ).slider({
   slide: function( event, ui ) {
-    sendCC(0, Math.round(ui.value));
+    sendCC(77, Math.round(ui.value));
   }
 });
 $( "#slider2" ).slider({
   slide: function( event, ui ) {
-    sendCC(1, Math.round(ui.value));
+    sendCC(78, Math.round(ui.value));
   }
 });
 $( "#slider3" ).slider({
   slide: function( event, ui ) {
-    sendCC(2, Math.round(ui.value));
+    sendCC(79, Math.round(ui.value));
   }
 });
 $( "#slider4" ).slider({
   slide: function( event, ui ) {
-    sendCC(3, Math.round(ui.value));
+    sendCC(80, Math.round(ui.value));
   }
 });
 $( "#slider5" ).slider({
   slide: function( event, ui ) {
-    sendCC(4, Math.round(ui.value));
+    sendCC(81, Math.round(ui.value));
   }
 });
 $( "#slider6" ).slider({
   slide: function( event, ui ) {
-    sendCC(5, Math.round(ui.value));
+    sendCC(82, Math.round(ui.value));
   }
 });
 $( "#slider7" ).slider({
   slide: function( event, ui ) {
-    sendCC(6, Math.round(ui.value));
+    sendCC(83, Math.round(ui.value));
   }
 });
 $( "#slider8" ).slider({
   slide: function( event, ui ) {
-    sendCC(7, Math.round(ui.value));
+    sendCC(84, Math.round(ui.value));
   }
 });
 
 //BTN
 var pressedBtn = -1;
 
-$( "#btn1A" ).mousedown(function() { pushBtn(32,this) });
-$( "#btn2A" ).mousedown(function() { pushBtn(33,this) });
-$( "#btn3A" ).mousedown(function() { pushBtn(34,this) });
-$( "#btn4A" ).mousedown(function() { pushBtn(35,this) });
-$( "#btn5A" ).mousedown(function() { pushBtn(36,this) });
-$( "#btn6A" ).mousedown(function() { pushBtn(37,this) });
-$( "#btn7A" ).mousedown(function() { pushBtn(38,this) });
-$( "#btn8A" ).mousedown(function() { pushBtn(39,this) });
-$( "#btn1B" ).mousedown(function() { pushBtn(48,this) });
-$( "#btn2B" ).mousedown(function() { pushBtn(49,this) });
-$( "#btn3B" ).mousedown(function() { pushBtn(50,this) });
-$( "#btn4B" ).mousedown(function() { pushBtn(51,this) });
-$( "#btn5B" ).mousedown(function() { pushBtn(52,this) });
-$( "#btn6B" ).mousedown(function() { pushBtn(53,this) });
-$( "#btn7B" ).mousedown(function() { pushBtn(54,this) });
-$( "#btn8B" ).mousedown(function() { pushBtn(55,this) });
+$( "#btn1A" ).mousedown(function() { pushNote(41,this) });
+$( "#btn2A" ).mousedown(function() { pushNote(42,this) });
+$( "#btn3A" ).mousedown(function() { pushNote(43,this) });
+$( "#btn4A" ).mousedown(function() { pushNote(44,this) });
+$( "#btn5A" ).mousedown(function() { pushNote(57,this) });
+$( "#btn6A" ).mousedown(function() { pushNote(58,this) });
+$( "#btn7A" ).mousedown(function() { pushNote(59,this) });
+$( "#btn8A" ).mousedown(function() { pushNote(60,this) });
+$( "#btn1B" ).mousedown(function() { pushNote(73,this) });
+$( "#btn2B" ).mousedown(function() { pushNote(74,this) });
+$( "#btn3B" ).mousedown(function() { pushNote(75,this) });
+$( "#btn4B" ).mousedown(function() { pushNote(76,this) });
+$( "#btn5B" ).mousedown(function() { pushNote(89,this) });
+$( "#btn6B" ).mousedown(function() { pushNote(90,this) });
+$( "#btn7B" ).mousedown(function() { pushNote(91,this) });
+$( "#btn8B" ).mousedown(function() { pushNote(92,this) });
+
+$( "#btn1A" ).mousedown(function() { releaseNote(41,this) });
+$( "#btn2A" ).mousedown(function() { releaseNote(42,this) });
+$( "#btn3A" ).mousedown(function() { releaseNote(43,this) });
+$( "#btn4A" ).mousedown(function() { releaseNote(44,this) });
+$( "#btn5A" ).mousedown(function() { releaseNote(57,this) });
+$( "#btn6A" ).mousedown(function() { releaseNote(58,this) });
+$( "#btn7A" ).mousedown(function() { releaseNote(59,this) });
+$( "#btn8A" ).mousedown(function() { releaseNote(60,this) });
+$( "#btn1B" ).mousedown(function() { releaseNote(73,this) });
+$( "#btn2B" ).mousedown(function() { releaseNote(74,this) });
+$( "#btn3B" ).mousedown(function() { releaseNote(75,this) });
+$( "#btn4B" ).mousedown(function() { releaseNote(76,this) });
+$( "#btn5B" ).mousedown(function() { releaseNote(89,this) });
+$( "#btn6B" ).mousedown(function() { releaseNote(90,this) });
+$( "#btn7B" ).mousedown(function() { releaseNote(91,this) });
+$( "#btn8B" ).mousedown(function() { releaseNote(92,this) });
 
 //上下左右ノートナンバー確認
 $( "#funcN" ).mousedown(function() { pushNote(101) });
