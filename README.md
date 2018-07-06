@@ -10,5 +10,5 @@ Set IAC Driver in Audio/MIDI Setup to online.
 ### Win
 Use virtualMIDI.
 
-## DEMO
+## TRY IT!
 https://onomuta.github.io/lcxl
