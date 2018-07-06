@@ -1,6 +1,7 @@
 # LCXL
 Novation Launch Control XL MIDI emulator on browser.
 
+![screen.png](screen.png)
 
 ## setup
 ### Mac
