@@ -164,6 +164,7 @@ $( "#slider8" ).slider({
 
 //BTN
 var pressedBtn = -1;
+var pressedNoteBtn = -1;
 
 $( "#btn1A" ).mousedown(function() { pushNoteBtn(41,this) });
 $( "#btn2A" ).mousedown(function() { pushNoteBtn(42,this) });
@@ -221,7 +222,8 @@ document.onmouseup = function() {
 function pushNoteBtn(note,t){
   t.classList.add("active");
   outputs[0].send([0x90,note,0x7f]);
-  pressedBtn = note;
+  // pressedBtn = note;
+  pressedNoteBtn = note;
 }
 
 function releaseBtn(){
@@ -232,9 +234,9 @@ function releaseBtn(){
   }
 }
 function releaseNote(){
-  if(pressedBtn != -1 ){
-    outputs[0].send([0x80,pressedBtn,0x00]);
+  if(pressedNoteBtn != -1 ){
+    outputs[0].send([0x80,pressedNoteBtn,0x00]);
     document.querySelector(".active").classList.remove("active");
-    pressedBtn = -1;
+    pressedNoteBtn = -1;
   }
 }
